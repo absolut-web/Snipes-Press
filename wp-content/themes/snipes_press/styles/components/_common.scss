@@ -1,0 +1,196 @@
+// Colors
+// -------------------------
+$color-orange: #df3f0d;
+$ci-color-primary: #334247;
+$ci-color-secondary: #ec6409;
+$color-black: #111111;
+$color-white: #ffffff;
+$color-gray: #c6c6c6;
+$color-gray-light: #f3f1f2;
+$color-orange: #ec6409;
+
+
+$color-red: #ff2c33;
+$color-blue: #193c53;
+$color-pink: #c6418a;
+$color-yellow: #f6b931;
+$color-green: #00d084;
+
+// Fonts
+// -------------------------
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+$font-family-base: 'Roboto', sans-serif !default;
+$font-family-secondary: 'Permanent Marker', cursive !default;
+$font-family-extra: 'Mizike', cursive !default;
+
+// PX to EM/REM
+// -------------------------
+$browser-context: 16; // Default
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
+}
+
+@function emRem($pixels, $unit, $context: $browser-context) {
+  @return #{$pixels/$context+$unit};
+}
+
+$font-size-base: emRem(16,em) !default;
+$font-size-medium: emRem(24,em) !default;
+$font-size-large: emRem(32,em) !default;
+$font-size-small: emRem(12,em) !default;
+
+$line-height-base: 1.5 !default;
+$line-height-small: 1.2 !default;
+$line-height-large: 2.5 !default;
+
+// Breaking Points
+// -------------------------
+$screen-desktop: emRem(1440,rem);
+$screen-laptop: emRem(870,rem);
+$screen-tablet: emRem(525,rem);
+
+// Mixins
+// -------------------------
+@mixin for-tablet {
+  @media (min-width: $screen-tablet) {
+    @content;
+  }
+}
+
+@mixin for-laptop {
+  @media (min-width: $screen-laptop) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: $screen-desktop) {
+    @content;
+  }
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  min-width: emRem(280,rem);
+  min-height: calc(100% + 1px);
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-black;
+  background: $color-white;
+}
+
+*, ::after, ::before {
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: 1px dotted $ci-color-secondary;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: content-box;
+  vertical-align: middle;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+
+  &--mobile {
+    @include for-laptop {
+      overflow: unset;
+    }
+  }
+
+}
+
+.visually-hidden:not(:focus):not(:active):not(.visually-hidden--show) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.section {
+  position: relative;
+}
+
+.section--large {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+.section--wide {
+  width: 100vw;
+  height: auto;
+  left: 50%;
+  margin-left: -50vw;
+}
+
+/* Edit Link */
+
+.edit-link {
+  position: fixed;
+  width: emRem(80,rem);
+  height: emRem(80,rem);
+  bottom: emRem(20,rem);
+  left: emRem(20,rem);
+  background: $color-black;
+  color: $color-white;
+  text-align: center;
+  font-size: emRem(10,em);
+  border-radius: 50%;
+  z-index: 3;
+
+  a {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    font-weight: 300 !important;
+  }
+}
+
+.wp-block-separator {
+
+  &.is-style-default {
+    width: calc(100% - 30px);
+    max-width: 100px;
+    border-top: 3px solid $color-gray;
+    border-bottom: none;
+  }
+
+  &.is-style-wide {
+    width: calc(100% - 30px);
+    max-width: 1370px;
+    border-top: 1px solid $color-gray;
+    border-bottom: none;
+  }
+}
+
+

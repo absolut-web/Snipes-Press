@@ -1,0 +1,148 @@
+a {
+  color: inherit;
+  transition: color ease-in-out 0.3s;
+
+  &[href^="tel:"] {
+    white-space: nowrap;
+  }
+}
+
+a:hover, a:focus, a:active {
+  color: inherit;
+}
+
+/* a:visited {
+  color: unset;
+} */
+
+/* a:focus,
+button:focus {
+  outline: thin dotted;
+} */
+
+a:hover, a:active {
+  outline: 0;
+}
+
+.colorize-orange {
+  color: $color-orange;
+}
+
+.button-link {
+  display: inline-block;
+  width: 100%;
+  max-width: 240px;
+
+  a {
+    display: block;
+    width: 100%;
+    padding: 15px 30px;
+    background: $color-black;
+    color: $color-white;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background ease-in-out 0.3s;
+
+    &:hover {
+      background: $ci-color-secondary;
+    }
+
+  }
+}
+
+.to-uppercase {
+  text-transform: uppercase;
+}
+
+.enumeration {
+  width: 100%;
+  display: inline-block;
+  font-weight: 700;
+
+  &__first-letter {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    font-size: 20px;
+    color: $color-white;
+    text-align: center;
+    line-height: 35px;
+    vertical-align: middle;
+    background: $ci-color-primary;
+    border-radius: 50%;
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.4;
+  margin: 0 auto 20px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 400;
+  @include for-tablet {
+    font-size: 28px;
+  }
+  @include for-laptop {
+    font-size: 38px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  @include for-tablet {
+    font-size: 22px;
+  }
+  @include for-laptop {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  @include for-tablet {
+    font-size: 20px;
+  }
+  @include for-laptop {
+    font-size: 22px;
+  }
+}
+
+p {
+  margin: 0 0 20px 0;
+}
+
+ul {
+  margin: 0 0 20px 0;
+  padding-left: 17px;
+}
+
+dfn, cite, em, i {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+* {
+  &.aligncenter {
+    text-align: center;
+  }
+}
+
+.section-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+}

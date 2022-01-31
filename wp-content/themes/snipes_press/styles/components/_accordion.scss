@@ -1,0 +1,89 @@
+.layout-block--accordion {
+  position: relative;
+  max-height: unset;
+  margin: auto;
+  padding: 20px;
+  flex-wrap: wrap;
+  overflow: visible;
+  @include for-tablet {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+    padding: 40px 10%;
+    overflow-y: auto;
+  }
+
+}
+
+.accordion-title,
+.accordion {
+  width: 100%;
+}
+
+.accordion__item {
+  position: relative;
+  padding: 20px 0 0 0;
+}
+
+.accordion__title {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-right: 60px;
+}
+
+.accordion__button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  right: 0;
+  padding: 0;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.accordion__button::after,
+.accordion__button::before {
+  content: "";
+  position: absolute;
+  width:20px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $color-pink;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion__button::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.accordion__button--toggled::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.accordion__button--toggled::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+.accordion__content {
+  max-height: 0;
+  padding: 0 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion__content--visible {
+  padding: 20px;
+  max-height: 9999px;
+  opacity:1;
+}
+

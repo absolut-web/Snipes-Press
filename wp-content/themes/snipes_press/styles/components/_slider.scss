@@ -1,0 +1,93 @@
+.slider-container {
+  position: relative;
+
+  .tns-nav {
+    position: absolute;
+    width: auto;
+    left: 50%;
+    bottom: 10px;
+    z-index: 3;
+
+    button {
+      width: 13px;
+      height: 13px;
+      margin: 2px;
+      padding: 0;
+      background: $ci-color-primary;
+      border: 2px solid $ci-color-primary;
+      border-radius: 50%;
+
+      &.tns-nav-active {
+        background: transparent;
+      }
+    }
+  }
+
+  .tns-controls {
+    button {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 50%;
+      left: 5px;
+      transform: translate(0, -50%);
+      display: none;
+      padding: 0;
+      background: transparent url(/wp-content/themes/myshoes/media/icons/arrow-icon.svg) center center no-repeat;
+      background-size: 80%;
+      border: none;
+      text-indent: -9999px;
+      z-index: 3;
+      overflow: hidden;
+
+      &:last-child {
+        right: 5px;
+        left: unset;
+        transform: translate(0, -50%) rotate(180deg);
+      }
+
+      @include for-laptop {
+        display: block;
+      }
+
+    }
+  }
+}
+
+.slide {
+  &__image {
+    width: 100%;
+    max-height: 730px;
+    min-height: 300px;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: absolute;
+    min-width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 30px;
+
+    h1 {
+      font-size: 26px;
+      margin: 0 auto 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      @include for-tablet {
+        font-size: 34px;
+      }
+
+      @include for-laptop {
+        font-size: 42px;
+      }
+    }
+
+    h2 {
+      margin: 0 auto 40px;
+    }
+
+
+  }
+}

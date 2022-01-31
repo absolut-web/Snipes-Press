@@ -1,0 +1,124 @@
+.section {
+  position: relative;
+  max-width: emRem(1400, rem);
+  margin: auto;
+  padding: emRem(20, rem) emRem(20, rem);
+
+  &--full-width {
+    width: 100vw;
+    max-width: unset;
+    height: auto;
+    left: 50%;
+    margin-left: -50vw;
+  }
+
+
+  &--small {
+    max-width: emRem(1150, rem);
+  }
+
+  &--half {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: emRem(20, rem);
+
+    @include for-laptop {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &--third {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: emRem(20, rem);
+
+    @include for-laptop {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &--sidebar {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: emRem(40, rem);
+
+    @include for-laptop {
+      grid-template-columns: 1fr emRem(350, rem);
+    }
+
+    @include for-desktop {
+      grid-template-columns: 1fr emRem(400, rem);
+    }
+  }
+
+  &--not-found {
+    text-align: center;
+    font-size: emRem(20, em);
+    padding: emRem(60, rem) emRem(20, rem);
+  }
+
+  &--search {
+    background: #f0f4f5;
+    z-index: 4;
+  }
+
+  &--background-image {
+    margin-top: emRem(20, rem);
+    margin-bottom: emRem(20, rem);
+    padding-top: emRem(80, rem);
+    padding-bottom: emRem(80, rem);
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, .5);
+      z-index: -1;
+    }
+  }
+
+
+  &__background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+}
+
+
+.section--split {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+
+.half-width-container {
+  width: 100%;
+  @include for-tablet {
+    width: 50%;
+  }
+
+  &--ordered {
+    order: 2;
+    @include for-tablet {
+      order: -1;
+    }
+  }
+}
+
+
+.half-width-container--accordion {
+  position: relative;
+}
+

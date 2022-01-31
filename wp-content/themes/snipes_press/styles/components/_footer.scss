@@ -1,0 +1,133 @@
+.site-footer {
+  position: sticky;
+  top: 100vh;
+  background: #F0F4F5;
+
+  &__inner {
+    max-width: emRem(1400, rem);
+    display: grid;
+    grid-template-columns: 100%;
+    margin: auto;
+    padding: emRem(40, rem) emRem(20, rem);
+
+    @include for-tablet {
+      grid-template-columns:  1fr 1fr;
+    }
+  }
+}
+
+.footer-menu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include for-tablet {
+    align-items: flex-start;
+  }
+
+  @include for-laptop {
+    flex-direction: row;
+  }
+
+  li {
+    margin-bottom: emRem(10, rem);
+    padding: 0;
+    line-height: 1.1;
+    list-style: none;
+
+    @include for-laptop {
+      border-left: emRem(2, rem) solid $color-orange;
+      padding: 0 emRem(10, rem);
+    }
+
+    &:first-child {
+      padding-left: 0;
+      border: none;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+}
+
+.social-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: emRem(40, rem) 0;
+  padding: 0;
+
+  @include for-tablet {
+    justify-content: flex-end;
+    align-items: flex-end;
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  @include for-laptop {
+    align-items: center;
+  }
+
+
+  &__item {
+    list-style: none;
+    margin-left: emRem(7, rem);
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    a {
+      width: emRem(35, rem);
+      height: emRem(35, rem);
+      display: block;
+      text-indent: -9999px;
+      border-radius: emRem(7, rem);
+      background-size: 65%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: $color-black;
+    }
+
+    &--facebook a {
+      background-image: url(/wp-content/themes/snipes_press/media/icons/social-media/facebook-f-brands.svg);
+    }
+
+    &--instagram a {
+      background-image: url(/wp-content/themes/snipes_press/media/icons/social-media/instagram-brands.svg);
+    }
+
+    &--youtube a {
+      background-image: url(/wp-content/themes/snipes_press/media/icons/social-media/youtube-brands.svg);
+    }
+
+    &--tiktok a {
+      background-image: url(/wp-content/themes/snipes_press/media/icons/social-media/tiktok-brands.svg);
+    }
+
+    &--spotify a {
+      background-image: url(/wp-content/themes/snipes_press/media/icons/social-media/spotify-brands.svg);
+    }
+
+  }
+}
+
+.site-info {
+  text-align: center;
+  font-size: emRem(14, em);
+  font-weight: 300;
+
+  @include for-tablet {
+    text-align: left;
+  }
+}

@@ -1,0 +1,241 @@
+// Toggle Button for Primary Menu
+.site-menu-button {
+  position: absolute;
+  width: emRem(40, rem);
+  height: emRem(40, rem);
+  top: emRem(20, rem);
+  right: emRem(20, rem);
+  text-indent: -9999px;
+  background-color: $color-white;
+  border: none;
+  border-radius: unset;
+  display: block;
+  z-index: 20;
+
+  @include for-laptop {
+    display: none;
+  }
+
+  & span, &:before, &:after {
+    position: absolute;
+    display: inline-block;
+    width: emRem(30, rem);
+    height: emRem(2, rem);
+    left: emRem(5, rem);
+    top: 50%;
+    margin-top: emRem(-1, rem);
+    border-radius: emRem(2, rem);
+    background-color: $color-black;
+    opacity: 1;
+    transition: all ease-in-out 0.2s;
+  }
+
+  &:before {
+    content: "";
+    transform: translateY(emRem(10, rem));
+  }
+
+  &:after {
+    content: "";
+    transform: translateY(emRem(-10, rem));
+  }
+
+  // Toggled
+  &--toggled {
+
+    & span {
+      opacity: 0;
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+
+  }
+
+
+}
+
+// Primary Menu Wrapper
+.site-menu {
+  width: unset;
+  @include for-laptop {
+
+  }
+
+  // Primary Menu
+  &__container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: emRem(40, rem) 0;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 15;
+    opacity: 0;
+    transition: opacity ease-in-out 0.5s, left ease-in-out 0s;
+    transition-delay: 0s, 0.5s;
+    overflow: auto;
+
+    /*&:focus-within */
+    &--visible {
+      left: 0;
+      opacity: 1;
+      transition: opacity ease-in-out 0.5s, left ease-in-out 0s;
+    }
+
+    /* &:focus-within {
+      left: 0;
+      opacity: 1;
+      transition: opacity ease-in-out 0.5s, left ease-in-out 0s;
+    } */
+
+    @include for-laptop {
+      position: relative;
+      opacity: 1;
+      top: unset;
+      left: unset;
+      flex-direction: row;
+      padding: unset;
+    }
+  }
+
+}
+
+
+.menu-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  li {
+    position: relative;
+    padding: emRem(5, rem);
+    list-style: none;
+    text-align: center;
+
+    @include for-laptop {
+      display: inline-block;
+      padding: emRem(5, rem) 3%;
+    }
+
+    a {
+      display: inline-block;
+      font-size: emRem(22, em);
+      text-decoration: none;
+      border-bottom: emRem(2, rem) solid transparent;
+
+      &:hover {
+        border-bottom: emRem(2, rem) solid $color-black;
+        transition: border-bottom-color ease-in-out 0.5s;
+      }
+
+      @include for-laptop {
+        font-size: emRem(16, em);
+      }
+
+    }
+
+    &.current-menu-item > {
+      a {
+        border-bottom: emRem(2, rem) solid $ci-color-primary;
+      }
+    }
+
+    &.current_page_parent > {
+      a {
+        border-bottom: emRem(2, rem) solid $ci-color-primary;
+      }
+    }
+
+    & .nav-menu__expand {
+      margin-left: emRem(5, rem);
+      padding: emRem(5, rem);
+
+      @include for-laptop {
+        margin-left: 0;
+        padding: 0 emRem(3, rem);
+      }
+    }
+
+    & .nav-menu__expand-icon {
+      width: emRem(16, rem);
+      height: emRem(16, rem);
+
+      @include for-laptop {
+        width: emRem(12, rem);
+        height: emRem(12, rem);
+      }
+    }
+
+    .sub-menu--second-level {
+      position: absolute;
+      margin: 0;
+      padding: 0 emRem(20, rem) emRem(10, rem) emRem(20, rem);
+      top: 100%;
+      left: -9999px;
+      transform: translate(-50%, 0);
+      background: $color-white;
+      z-index: 100;
+
+      li {
+        display: block;
+        width: 100%;
+        min-width: emRem(150, rem);
+        margin: 0;
+        padding: emRem(5, rem);
+        text-align: center;
+
+        a {
+          font-size: emRem(16, em);
+        }
+      }
+
+      .wpml-ls-menu-item {
+        min-width: emRem(20, rem);
+        padding: 0;
+      }
+
+      &.sub-menu--active {
+        left: 50%;
+        position: relative;
+        @include for-laptop {
+          position: absolute;
+        }
+      }
+    }
+
+    &:hover .sub-menu--second-level {
+      @include for-laptop {
+        position: absolute;
+        left: 50%;
+      }
+    }
+
+    &.wpml-ls-current-language {
+      .sub-menu--second-level {
+        max-width: emRem(80, rem);
+      }
+    }
+
+  }
+
+}
+
+.menu-item-has-children svg {
+  transition: all ease 0.2s;
+}
+
+.menu-item-has-children .nav-menu__expand--active svg {
+  transform: rotate(180deg);
+}

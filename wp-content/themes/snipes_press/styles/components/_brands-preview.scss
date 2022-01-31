@@ -1,0 +1,50 @@
+.brands-preview {
+  text-align: center;
+  &__inner {
+    text-transform: uppercase;
+  }
+}
+
+.brands-preview-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  margin-left: -0.5%;
+  margin-right: -0.5%;
+
+
+  &__item {
+    width: calc(25% - 1%);
+    margin: 10px 0.5%;
+
+    @include for-tablet {
+      width: calc(18% - 1%);
+    }
+
+    @include for-laptop {
+      width: calc(12.5% - 1%);
+    }
+  }
+
+  &__item-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    background: $color-black;
+    border-radius: 50%;
+  }
+
+  &__image {
+    position: absolute;
+    width: auto;
+    max-width: 70%;
+    height: 55px;
+    top: 50%;
+    left: 50%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+  }
+
+}

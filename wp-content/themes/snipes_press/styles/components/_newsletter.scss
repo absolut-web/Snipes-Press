@@ -1,0 +1,93 @@
+.newsletter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 20px 0 40px 0;
+  background: #ffe6c1;
+  @include for-laptop {
+    background: #ffe6c1;
+    background: linear-gradient(0deg, rgba(255, 230, 193, 1) 85%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  &__graphic {
+    position: absolute;
+    width: 15%;
+    max-width: 200px;
+    min-width: 130px;
+    top: -35px;
+    left: 5px;
+    z-index: 1;
+    @include for-laptop {
+      top: -10px;
+      left: -10px;
+    }
+  }
+
+  &__title {
+    width: calc(100% - 30px);
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    line-height: $line-height-small;
+    z-index: 2;
+    @include for-laptop {
+      width: 70%;
+      margin-top: auto;
+    }
+  }
+
+  &__benefits {
+    width: calc(100% - 30px);
+    max-width: 500px;
+    text-transform: uppercase;
+    z-index: 2;
+    margin-bottom: 20px;
+    @include for-laptop {
+      width: calc(50% - 30px);
+      margin-bottom: 0;
+    }
+
+    p {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__form {
+    width: calc(100% - 30px);
+    max-width: 500px;
+    @include for-laptop {
+      width: calc(50% - 30px);
+    }
+  }
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__label {
+    width: 100%;
+    margin-bottom: 20px;
+
+    .label-inner, input {
+      background: #ffe6c1;
+    }
+  }
+
+  &__submit {
+    display: inline-block;
+    width: 100%;
+    margin: 5px auto;
+    @include for-laptop {
+      width: calc(50% - 10px);
+      margin: auto;
+    }
+  }
+}

@@ -10,25 +10,40 @@
  */
 
 ?>
+<footer id="colophon" class="site-footer">
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'snipes_press' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'snipes_press' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'snipes_press' ), 'snipes_press', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+    <div class="site-footer__inner">
+        <?php wp_nav_menu( array(
+            'theme_location' => 'footer',
+            'menu_id'        => '',
+            'menu_class'     => 'site-footer__menu footer-menu',
+            'container'      => ''
+        ) ); ?>
 
+        <ul class="site-footer__social social-menu">
+            <li class="social-menu__item social-menu__item--instagram">
+                <a aria-label="Instagram" rel="noopener nofollow" href="https://www.instagram.com/snipes/">Instagram</a>
+            </li>
+            <li class="social-menu__item social-menu__item--youtube">
+                <a aria-label="YouTube" rel="noopener nofollow" href="https://www.youtube.com/user/snipes">YouTube</a>
+            </li>
+            <li class="social-menu__item social-menu__item--tiktok">
+                <a aria-label="TikTok" rel="noopener nofollow" href="https://www.tiktok.com/@snipesknows?lang=en">TikTok</a>
+            </li>
+            <li class="social-menu__item social-menu__item--facebook">
+                <a aria-label="Facebook" rel="noopener nofollow" href="https://www.facebook.com/Snipes.com/">Facebook</a>
+            </li>
+            <li class="social-menu__item social-menu__item--spotify">
+                <a aria-label="Spotify" rel="noopener nofollow" href="https://open.spotify.com/user/snipesshop">Spotify</a>
+            </li>
+        </ul>
+
+        <div class="site-footer__info site-info">
+            © <?php echo date("Y"); ?> SNIPES
+        </div>
+    </div>
+
+</footer>
 <?php wp_footer(); ?>
-
 </body>
 </html>

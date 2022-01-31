@@ -8,28 +8,36 @@
  */
 
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-archive' ); ?> >
+    <div class="article-archive__image list-image">
+        <a class="list-image__link" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+            <?php if ( has_post_thumbnail() ):
+                the_post_thumbnail( 'medium_large', array( 'class' => 'list-image__image' ) );
+            else:
+                echo header_placeholder_image('list-image__image');
+            endif; ?>
+        </a>
+    </div>
+    <div class="article-archive__content list-content">
+        <header class="list-content__header">
+            <div class="list-content__meta ">
+                <?php snipes_press_posted_on(); echo ' '; snipes_press_entry_footer(); ?>
+            </div>
+            <?php the_title( '<h2 class="list-content__title"><a href="'.esc_url( get_permalink() ).'" rel="bookmark">', '</a></h2>' ); ?>
+        </header>
+        <p class="list-content__excerpt">
+            <?php
+            the_content(
+                sprintf(
+                    wp_kses( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'snipes_press' ),
+                        array( 'span' => array( 'class' => array(), ), ) ),
+                    wp_kses_post( get_the_title() )
+                )
+            );
+            ?>
+        </p>
+    </div>
+</article>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			snipes_press_posted_on();
-			snipes_press_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php snipes_press_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php snipes_press_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->

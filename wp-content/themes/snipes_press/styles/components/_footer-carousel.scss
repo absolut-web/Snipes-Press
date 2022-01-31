@@ -1,0 +1,20 @@
+.customers {
+  margin: 40px auto;
+}
+
+.carousel__inner {
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid $color-gray;
+  border-radius: 3px;
+}
+
+.carousel__image {
+  width: auto;
+  max-width: 140px;
+  height: 55px;
+  object-fit: contain;
+}

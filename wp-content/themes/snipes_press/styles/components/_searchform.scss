@@ -1,0 +1,25 @@
+
+.search-form {
+  max-width: emRem(800, rem);
+  display: grid;
+  grid-template-columns: 1fr emRem(64, rem);
+  margin: auto;
+  padding: emRem(60, rem) emRem(20, rem);
+
+  &--search {
+    padding: emRem(20, rem) 0;
+  }
+
+  & input {
+    margin-bottom: 0;
+  }
+
+  &__submit-button {
+    margin-bottom: 0;
+    text-indent: -9999px;
+    border-color: $color-black;
+    background: $color-black url(/wp-content/themes/snipes_press/media/icons/search-icon.svg) no-repeat center !important;
+    background-size: 40% !important;
+  }
+
+}

@@ -1,0 +1,102 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    position: absolute;
+    padding: 10px 40px;
+    font-size: $font-size-medium;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+    white-space: nowrap;
+    @include for-laptop {
+      font-size: $font-size-large;
+    }
+  }
+
+  &__title--first {
+    top: 50px;
+    left: 0;
+    background: $color-white;
+    font-weight: 300;
+  }
+
+  &__title--second {
+    top: 100px;
+    left: 5%;
+    background: $ci-color-secondary;
+    color: $color-white;
+    font-weight: 700;
+    @include for-laptop {
+      top: 110px;
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: 50%;
+    right: calc(50% - 80px);
+    padding: 0 30px;
+    transform: translate(0, -50%);
+    background: $color-black;
+    color: $color-white;
+    border-radius: 50%;
+    z-index: 2;
+    span {
+      position: absolute;
+      width: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    @include for-tablet {
+      right: 20%;
+    }
+  }
+
+  &__info-text {
+    position: absolute;
+    bottom: 30px;
+    right: 4%;
+    color: $color-white;
+    z-index: 2;
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 550px;
+    min-height: 170px;
+    object-fit: cover;
+    z-index: 1;
+    @include for-laptop {
+      max-height: 350px;
+      min-height: 300px;
+    }
+
+  }
+
+  &__footer-image {
+    position: absolute;
+    width: 100%;
+    height: 65%;
+    bottom: 0;
+    left: 0;
+    background: transparent url(/wp-content/themes/myshoes/media/banner/banner-background.svg) right top no-repeat;
+    background-size: cover;
+    z-index: 1;
+    @include for-laptop {
+      height: 95%;
+    }
+  }
+
+}
+
+.background-sneaker {
+  background-position: 100% 100%;
+  max-width: unset;
+}

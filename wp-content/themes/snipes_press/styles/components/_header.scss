@@ -1,0 +1,68 @@
+.screen-reader {
+  position: absolute;
+  top: rem(20);
+  right: rem(20);
+  padding: rem(10) rem(20);
+  color: $color-white !important;
+  background: $color-black;
+  border: 2px solid $color-white;
+  border-radius: rem(50);
+  text-decoration: none;
+  z-index: 999;
+}
+
+.header {
+  max-width: emRem(1400, rem);
+  display: grid;
+  grid-template-columns: emRem(120, rem) 1fr emRem(60, rem);
+  align-items: center;
+  margin: auto;
+  padding: emRem(20, rem) emRem(20, rem);
+
+  @include for-laptop {
+    padding: emRem(40, rem) emRem(20, rem);
+    grid-template-columns:  1fr 2fr 1fr;
+  }
+
+
+  &__logo {
+  }
+
+  &__menu {
+    order: 2;
+    @include for-laptop {
+      order: unset;
+    }
+  }
+
+  &__lang-switch {
+    text-align: right;
+  }
+
+}
+
+.logo {
+  position: relative;
+  display: inline-block;
+
+  &__image {
+    width: auto;
+    height: emRem(40, rem);
+
+    @include for-laptop {
+      width: emRem(120, rem);
+      height: auto;
+    }
+  }
+}
+
+
+.post-thumbnail {
+  width: 100%;
+}
+
+.attachment-post-thumbnail {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+}

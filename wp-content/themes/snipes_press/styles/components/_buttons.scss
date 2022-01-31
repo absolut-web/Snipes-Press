@@ -1,0 +1,18 @@
+.button-look {
+  display: inline-block;
+  padding: emRem(15,rem) emRem(20,rem);
+  text-decoration: none;
+  color: $color-white!important;
+  background-color: $color-orange;
+  transition: background-color ease-in-out 0.3s;
+  text-transform: uppercase;
+  line-height: 1;
+
+  & a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $color-black;
+  }
+}

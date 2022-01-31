@@ -1,0 +1,50 @@
+.magazine {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #e6e8e3;
+    margin-bottom: 20px;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    @include for-laptop {
+      width: 70%;
+      padding: 0;
+    }
+  }
+
+  &__info-text {
+    width: 100%;
+    padding: 20px;
+    @include for-laptop {
+      width: 30%;
+    }
+
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    max-height: unset;
+    min-height: unset;
+    object-fit: cover;
+    z-index: 1;
+    @include for-laptop {
+      max-height: 350px;
+      min-height: 300px;
+      height: unset;
+    }
+  }
+
+  &__download {
+   text-align: center;
+  }
+
+
+}

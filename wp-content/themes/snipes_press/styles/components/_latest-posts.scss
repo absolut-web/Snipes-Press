@@ -1,0 +1,138 @@
+.post-block {
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__link {
+    display: table;
+    margin: emRem(30, rem) auto;
+  }
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: emRem(20, rem);
+
+  @include for-laptop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+
+
+.latest-post {
+  position: relative;
+
+  &--regular {
+    padding-bottom: emRem(30, rem);
+
+    &:last-child {
+      padding-bottom: unset;
+    }
+
+    @include for-laptop {
+      padding-bottom: unset;
+    }
+  }
+
+  &__image-link {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: emRem(13, rem);
+    overflow: hidden;
+
+    &:hover {
+      .latest-post__image {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform ease-in-out 0.5s;
+
+    &--overlay {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: emRem(5, rem);
+    font-size: emRem(18, em);
+    font-weight: 700;
+
+    &--overlay {
+      margin-bottom: emRem(20, rem);
+      font-size: emRem(22, em);
+      color: $color-white;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+  }
+
+  &__excerpt {
+    margin-bottom: emRem(5, rem);
+  }
+
+  &__link {
+    color: $color-orange;
+
+    &--overlay {
+      z-index: 3;
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 4;
+      }
+    }
+  }
+
+
+  &--overlay {
+    width: 100%;
+    min-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: emRem(20, rem);
+    text-align: center;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(17, 17, 17, 0.5);
+      z-index: 2;
+    }
+
+    &:hover {
+      .latest-post__image {
+        transform: scale(1.05);
+      }
+    }
+
+  }
+
+}

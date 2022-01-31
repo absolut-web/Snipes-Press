@@ -13,47 +13,57 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-
-	<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'snipes_press' ); ?></a>
+<a class="screen-reader visually-hidden"
+   href="#primary"><?php esc_html_e( 'Skip to content', 'snipes_press' ); ?></a>
+<header class="header">
+    <div class="header__logo">
+        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+            <img class="logo__image" width="120" height="42"
+                 src="<?php bloginfo( 'template_directory' ); ?>/media/snipes-logo.svg"
+                 alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+        </a>
+    </div>
+    <div class="header__menu site-menu">
+        <button class="site-menu__button site-menu-button" aria-controls="primary-menu"
+                aria-expanded="false"><?php esc_html_e( 'Menu', 'snipes_press' ); ?>
+            <span class="site-menu-button__icon"></span>
+        </button>
+        <nav class="site-menu__container">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'primary',
+                'menu_id'        => 'primary-menu',
+                'menu_class'     => 'menu-list',
+                'container'      => ''
+            ) );
+            ?>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$snipes_press_description = get_bloginfo( 'description', 'display' );
-			if ( $snipes_press_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $snipes_press_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+        </nav>
+    </div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'snipes_press' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+    <div class="header__lang-switch lang-select">
+
+
+        <div class="page-menu__lang lang-select">
+            <button class="lang-select__button" type="button">
+                <span>DE</span>
+                <img width="20" height="15" src="<?php bloginfo( 'template_directory' ); ?>/media/icons/flag-gb.svg" alt="German"></button>
+
+            <div class="lang-select__alternate visually-hidden">
+                <a href="?lang=pl"><span>EN</span>
+                    <img width="20" height="15" src="<?php bloginfo( 'template_directory' ); ?>/media/icons/flag-pl.svg" alt="English">
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</header>

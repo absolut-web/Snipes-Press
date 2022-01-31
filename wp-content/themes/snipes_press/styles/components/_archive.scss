@@ -1,0 +1,52 @@
+.article-archive {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: emRem(20, rem);
+  align-items: center;
+  padding: emRem(50, rem) 0;
+  border-bottom: emRem(1, rem) solid $color-gray;
+
+  @include for-laptop{
+    grid-template-columns: emRem(400, rem) minmax(auto, emRem(700, rem)) ;
+    grid-gap: emRem(40, rem);
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.list-image {
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &:hover {
+      .list-image__image {
+        transform: scale(1.05);
+      }
+    }
+
+  }
+
+  &__image {
+    width: 100%;
+    height: emRem(200, rem);
+    object-fit: cover;
+    object-position: 50% 30%;
+    transition: transform ease-in-out 0.5s;
+
+    @include for-tablet {
+      height: emRem(250, rem);
+    }
+
+    @include for-laptop {
+      height: emRem(300, rem);
+    }
+  }
+}

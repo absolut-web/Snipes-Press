@@ -1,0 +1,73 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity ease-in-out 0.5s, left ease-in-out 0s;
+  transition-delay: 0.01s, 0.5s;
+
+  &--visible {
+    left: 0;
+    opacity: 1;
+    transition: opacity ease-in-out 0.5s, left ease-in-out 0s;
+  }
+
+  &__close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: block;
+    top: 0;
+    right: 0;
+    padding: 0;
+    background: $color-black;
+    z-index: 105;
+    cursor: pointer;
+
+    &:before, &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 30px;
+      height: 2px;
+      top: 50%;
+      left: 5px;
+      margin-top: -1px;
+      transform: rotate(45deg);
+      background: $color-white;
+      border-radius: 2px;
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $color-white;
+    z-index: 101;
+
+    @include for-laptop {
+      width: calc(100% - 100px);
+      height: calc(100% - 100px);
+    }
+
+    iframe {
+      width: 100%!important;
+      height: 100%!important;
+      z-index: 102;
+    }
+  }
+}
+
