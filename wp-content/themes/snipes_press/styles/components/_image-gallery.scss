@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: emRem(20, rem);
+  margin-bottom: emRem(20, rem);
 
   &--one-column {
     @include for-laptop {
