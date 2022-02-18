@@ -172,6 +172,19 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 }
 
 /**
+ * Random String
+ */
+function generate_random_string($length = 5): string {
+    $characters = 'abcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+/**
  * Placeholder
  */
 
