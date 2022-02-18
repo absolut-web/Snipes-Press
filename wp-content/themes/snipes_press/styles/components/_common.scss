@@ -178,19 +178,19 @@ img {
   }
 }
 
-
 .otgs-development-site-front-end {
   display: none !important;
 }
 
-
-.wp-video-shortcode {
+.wp-video {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 20px;
   height: 0;
   overflow: hidden;
 
+  & video,
+  & .wp-video-shortcode,
   & iframe,
   & object,
   & embed {
