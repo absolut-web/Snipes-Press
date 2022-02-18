@@ -147,7 +147,8 @@
 
     }
 
-    &.current-menu-item > {
+    &.current-menu-item >,
+    &.current-category-ancestor > {
       a {
         border-bottom: emRem(2, rem) solid $ci-color-primary;
       }
