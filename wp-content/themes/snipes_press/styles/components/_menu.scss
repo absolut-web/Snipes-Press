@@ -149,14 +149,14 @@
 
     }
 
-    &.current-menu-item >,
-    &.current-category-ancestor > {
+    &.current-menu-item > {
       a {
         border-bottom: emRem(2, rem) solid $ci-color-primary;
       }
     }
 
-    &.current_page_parent > {
+    &.current_page_parent >,
+    &.current-category-ancestor >{
       a {
         border-bottom: emRem(2, rem) solid $ci-color-primary;
       }
