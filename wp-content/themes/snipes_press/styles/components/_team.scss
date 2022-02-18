@@ -1,0 +1,144 @@
+.team-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: emRem(20, rem);
+  grid-auto-rows: 1fr;
+  justify-items: stretch;
+
+  @include for-tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include for-laptop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+.team-member {
+  position: relative;
+  width: 100%;
+  min-height: emRem(500, rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: emRem(40, rem) emRem(20, rem);
+  text-align: center;
+  color: $color-white;
+  overflow: hidden;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 130%;
+    top: 60%;
+    left: 0;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.7) 30%);
+    z-index: 2;
+    transition: top ease-in-out 0.3s;
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    transition: transform ease-in-out .5s;
+  }
+
+  &__name,
+  &__name--clone {
+    h1, h2, h3, p {
+      margin-bottom: 0;
+      font-size: emRem(18, em);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: emRem(70, rem);
+      height: emRem(2, rem);
+      margin: emRem(5, rem) auto;
+      background-color: $color-orange;
+
+    }
+  }
+
+  &__name,
+  &__content,
+  &__social {
+    position: relative;
+    width: 100%;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity ease-in-out 0.3s;
+  }
+
+  &__name--clone {
+    position: absolute;
+    bottom: emRem(20, rem);
+    opacity: 1;
+  }
+
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    &:after {
+      top: -30%;
+    }
+
+    .team-member__name,
+    .team-member__content,
+    .team-member__social {
+      opacity: 1;
+    }
+
+    .team-member__name--clone {
+      opacity: 0;
+    }
+  }
+
+
+}
+
+.team-member-social {
+  display: flex;
+  justify-content: center;
+  gap: emRem(10, rem);
+
+
+  &__link {
+    width: emRem(35, rem);
+    height: emRem(35, rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: emRem(7, rem);
+    background-color: $color-white;
+    transition: background-color ease-in-out 0.3s;
+
+    img {
+      filter: brightness(0%);
+    }
+
+    &:hover {
+      background-color: $color-orange;
+
+      img {
+        filter: unset;
+      }
+    }
+
+
+  }
+}

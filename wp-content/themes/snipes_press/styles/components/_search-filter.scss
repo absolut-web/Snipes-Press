@@ -1,0 +1,73 @@
+.search-form {
+  max-width: emRem(800, rem);
+  display: grid;
+  grid-template-columns: 1fr emRem(64, rem);
+  margin: auto;
+  padding: emRem(60, rem) emRem(20, rem);
+
+  &--search {
+    padding: emRem(20, rem) 0;
+  }
+
+  & input {
+    margin-bottom: 0;
+  }
+
+  &__submit-button {
+    margin-bottom: 0;
+    text-indent: -9999px;
+    border-color: $color-black;
+    background: $color-black url(/wp-content/themes/snipes_press/media/icons/search-icon.svg) no-repeat center !important;
+    background-size: 40% !important;
+  }
+
+}
+
+.post-filter {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: emRem(10, rem);
+  padding: emRem(20, rem);
+  margin: 0;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  z-index: 102;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include for-tablet {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: emRem(20, rem);
+    padding: emRem(20, rem) 0;
+  }
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    width: emRem(45, rem);
+    height: 100%;
+    display: block;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+  }
+
+  &:before {
+    left:0;
+    background: linear-gradient(270deg, rgba(240,244,245,0) 0%, rgba(240,244,245,1) 60%);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(90deg, rgba(240,244,245,0) 0%, rgba(240,244,245,1) 60%);
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+}

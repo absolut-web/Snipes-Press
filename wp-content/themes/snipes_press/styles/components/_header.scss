@@ -17,7 +17,7 @@
   grid-template-columns: emRem(120, rem) 1fr emRem(60, rem);
   align-items: center;
   margin: auto;
-  padding: emRem(20, rem) emRem(20, rem);
+  padding: emRem(20, rem);
 
   @include for-laptop {
     padding: emRem(40, rem) emRem(20, rem);
@@ -36,7 +36,9 @@
   }
 
   &__lang-switch {
-    text-align: right;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
   }
 
 }
@@ -54,6 +56,124 @@
       height: auto;
     }
   }
+}
+
+
+.lang-switch {
+  &__button {
+    position: relative;
+    z-index: 6;
+  }
+
+  &__menu {
+    position: absolute;
+    width: calc(100vw - #{emRem(40, rem)});
+    max-width: emRem(360, rem);
+    top: calc(100% + #{emRem(30, rem)});
+    right: emRem(-60, rem);
+    padding: emRem(40, rem) emRem(20, rem);
+    text-align: center;
+    box-shadow: 0 0 emRem(15, rem) rgba(0, 0, 0, 0.2);
+    background-color: $color-white;
+    z-index: 5;
+
+    @include for-laptop {
+      top: calc(100% + #{emRem(20, rem)});
+      right: 0;
+    }
+  }
+}
+
+.lang-button {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: emRem(5, rem);
+  padding: emRem(10, rem) emRem(5, rem);
+  font-size: emRem(14, em);
+  color: $color-black;
+  border: none;
+  border-radius: unset;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @include for-laptop {
+    gap: emRem(10, rem);
+  }
+
+  & img {
+    border: emRem(1, rem) solid $color-gray-light;
+    display: none;
+    @include for-laptop {
+      display: unset;
+    }
+  }
+
+  &:after {
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    width: emRem(10, rem);
+    height: emRem(10, rem);
+    margin-top: emRem(-5, rem);
+    border-top: emRem(1, rem) solid #494B52;
+    border-right: emRem(1, rem) solid #494B52;
+    transform: rotate(135deg);
+    transition: all ease-in-out .2s;
+  }
+
+  &--active {
+    &:after {
+      margin-top: 3px;
+      transform: rotate(-45deg);
+    }
+  }
+
+}
+
+
+.wpml-ls-item {
+
+  .wpml-ls-native {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: emRem(7, rem);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: emRem(28, rem);
+      height: emRem(21, rem);
+      border: emRem(1, rem) solid $color-gray-light;
+      border-radius: emRem(2, rem);
+      background: $color-gray-light;
+    }
+
+  }
+
+  &-de {
+    .wpml-ls-native {
+      &:before {
+        background: url(/wp-content/themes/snipes_press/media/flags/de.svg) no-repeat center;
+      }
+    }
+  }
+
+  &-en {
+    .wpml-ls-native {
+      &:before {
+        background: url(/wp-content/themes/snipes_press/media/flags/gb.svg) no-repeat center;
+      }
+    }
+  }
+
 }
 
 

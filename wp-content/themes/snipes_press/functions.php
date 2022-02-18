@@ -7,12 +7,12 @@
  * @package snipes_press
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
     // Replace the version number of the theme on each release.
-    define( '_S_VERSION', '1.0.0' );
+    define('_S_VERSION', '1.0.0');
 }
 
-if ( ! function_exists( 'snipes_press_setup' ) ) :
+if (!function_exists('snipes_press_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -20,17 +20,18 @@ if ( ! function_exists( 'snipes_press_setup' ) ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function snipes_press_setup() {
+    function snipes_press_setup()
+    {
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
          * If you're building a theme based on snipes_press, use a find and replace
          * to change 'snipes_press' to the name of your theme in all the template files.
          */
-        load_theme_textdomain( 'snipes_press', get_template_directory() . '/languages' );
+        load_theme_textdomain('snipes_press', get_template_directory() . '/languages');
 
         // Add default posts and comments RSS feed links to head.
-        add_theme_support( 'automatic-feed-links' );
+        add_theme_support('automatic-feed-links');
 
         /*
          * Let WordPress manage the document title.
@@ -38,20 +39,20 @@ if ( ! function_exists( 'snipes_press_setup' ) ) :
          * hard-coded <title> tag in the document head, and expect WordPress to
          * provide it for us.
          */
-        add_theme_support( 'title-tag' );
+        add_theme_support('title-tag');
 
         /*
          * Enable support for Post Thumbnails on posts and pages.
          *
          * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
          */
-        add_theme_support( 'post-thumbnails' );
+        add_theme_support('post-thumbnails');
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(
             array(
-                'primary' => esc_html__( 'Primary', 'snipes_press' ),
-                'footer'  => esc_html__( 'Footer', 'snipes_press' )
+                'primary' => esc_html__('Primary', 'snipes_press'),
+                'footer' => esc_html__('Footer', 'snipes_press')
             )
         );
 
@@ -71,9 +72,12 @@ if ( ! function_exists( 'snipes_press_setup' ) ) :
                 'script',
             )
         );
+
+        add_image_size('gallery_thumb', 1000, 570, true);
+
     }
 endif;
-add_action( 'after_setup_theme', 'snipes_press_setup' );
+add_action('after_setup_theme', 'snipes_press_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -82,32 +86,34 @@ add_action( 'after_setup_theme', 'snipes_press_setup' );
  *
  * @global int $content_width
  */
-function snipes_press_content_width() {
-    $GLOBALS['content_width'] = apply_filters( 'snipes_press_content_width', 1400 );
+function snipes_press_content_width()
+{
+    $GLOBALS['content_width'] = apply_filters('snipes_press_content_width', 1400);
 }
 
-add_action( 'after_setup_theme', 'snipes_press_content_width', 0 );
+add_action('after_setup_theme', 'snipes_press_content_width', 0);
 
 
 /**
  * Enqueue scripts and styles.
  */
-function snipes_press_scripts() {
-    wp_enqueue_style( 'snipes_press-style', get_stylesheet_uri(), array(), _S_VERSION );
-    wp_dequeue_style( 'wp-block-library' );
-    wp_style_add_data( 'snipes_press-style', 'rtl', 'replace' );
+function snipes_press_scripts()
+{
+    wp_enqueue_style('snipes_press-style', get_stylesheet_uri(), array(), _S_VERSION);
+    wp_dequeue_style('wp-block-library');
+    wp_style_add_data('snipes_press-style', 'rtl', 'replace');
 
-    wp_enqueue_script( 'snipes_press-navigation', get_template_directory_uri() . '/js/index.js', array(), _S_VERSION, true );
-    wp_deregister_script( 'jquery' );
-    wp_deregister_script( 'wp-embed' );
+    wp_enqueue_script('snipes_press-navigation', get_template_directory_uri() . '/js/index.js', array(), _S_VERSION, true);
+    wp_deregister_script('jquery');
+    wp_deregister_script('wp-embed');
 
 
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
     }
 }
 
-add_action( 'wp_enqueue_scripts', 'snipes_press_scripts' );
+add_action('wp_enqueue_scripts', 'snipes_press_scripts');
 
 /**
  * Custom template tags for this theme.

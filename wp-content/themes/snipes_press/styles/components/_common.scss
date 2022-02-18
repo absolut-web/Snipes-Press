@@ -6,7 +6,7 @@ $ci-color-secondary: #ec6409;
 $color-black: #111111;
 $color-white: #ffffff;
 $color-gray: #c6c6c6;
-$color-gray-light: #f3f1f2;
+$color-gray-light: #f0f4f5;
 $color-orange: #ec6409;
 
 
@@ -131,24 +131,10 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+  opacity: 0;
 }
 
-.section {
-  position: relative;
-}
 
-.section--large {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px 15px;
-}
-
-.section--wide {
-  width: 100vw;
-  height: auto;
-  left: 50%;
-  margin-left: -50vw;
-}
 
 /* Edit Link */
 
@@ -193,4 +179,8 @@ img {
   }
 }
 
+
+.otgs-development-site-front-end {
+  display: none!important;
+}
 

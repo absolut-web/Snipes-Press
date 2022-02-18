@@ -1,89 +1,92 @@
-.layout-block--accordion {
-  position: relative;
-  max-height: unset;
-  margin: auto;
-  padding: 20px;
-  flex-wrap: wrap;
-  overflow: visible;
-  @include for-tablet {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    margin: auto;
-    padding: 40px 10%;
-    overflow-y: auto;
-  }
-
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: emRem(20, rem);
 }
 
-.accordion-title,
 .accordion {
-  width: 100%;
+  border: emRem(1, rem) solid $color-gray;
 }
 
-.accordion__item {
+.accordion-header {
   position: relative;
-  padding: 20px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr emRem(25, rem);
+  gap: emRem(20, rem);
+  padding: emRem(20, rem) emRem(20, rem) 0 emRem(20, rem);
+
+  &__button {
+    width: emRem(25, rem);
+    height: emRem(25, rem);
+    top: 0;
+    right: 0;
+    padding: 0;
+    line-height: 0;
+    border: none;
+    border-radius: unset;
+    background: $color-white;
+    text-indent: -9999rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    & span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      &:before, &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: emRem(2, rem);
+        width: emRem(15, rem);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        border-radius: emRem(2, rem);
+        background: $color-black;
+        transition: all ease-in-out 0.3s;
+
+      }
+
+      &:after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+    }
+
+    &--active {
+      & span {
+        &:before {
+          transform: translate(-50%, -50%) rotate(-90deg);
+          background: transparent;
+        }
+        &:after {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      }
+    }
+  }
 }
 
-.accordion__title {
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding-right: 60px;
-}
-
-.accordion__button {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 20px;
-  right: 0;
-  padding: 0;
-  background: 0 0;
-  border: 0;
-  cursor: pointer;
-}
-
-.accordion__button::after,
-.accordion__button::before {
-  content: "";
-  position: absolute;
-  width:20px;
-  height: 2px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: $color-pink;
-  border-radius: 2px;
-  transition: all 0.2s ease-in-out;
-}
-
-.accordion__button::before {
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-.accordion__button--toggled::before {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.accordion__button--toggled::after {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-
-.accordion__content {
+.accordion-content {
   max-height: 0;
-  padding: 0 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
+  padding: 0 emRem(20, rem);
+  overflow: hidden;
+  transition: max-height ease-in-out 0.3s;
 }
-
-.accordion__content--visible {
-  padding: 20px;
-  max-height: 9999px;
-  opacity:1;
-}
-

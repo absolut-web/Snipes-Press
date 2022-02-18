@@ -1,6 +1,7 @@
 .article-header {
   position: relative;
   width: 100%;
+  margin-bottom: emRem(40, rem);
 
   &:not(.article-header--no-title) {
     &:after {

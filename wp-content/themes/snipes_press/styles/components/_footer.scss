@@ -1,7 +1,9 @@
 .site-footer {
   position: sticky;
   top: 100vh;
-  background: #F0F4F5;
+  margin-top: emRem(60, rem);
+  background: $color-gray-light;
+
 
   &__inner {
     max-width: emRem(1400, rem);

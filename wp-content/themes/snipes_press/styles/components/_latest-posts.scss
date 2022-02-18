@@ -70,10 +70,11 @@
     margin-bottom: emRem(5, rem);
     font-size: emRem(18, em);
     font-weight: 700;
+    text-transform: unset;
 
     &--overlay {
       margin-bottom: emRem(20, rem);
-      font-size: emRem(22, em);
+      font-size: emRem(20, em);
       color: $color-white;
       text-transform: uppercase;
       z-index: 3;
@@ -102,7 +103,6 @@
       }
     }
   }
-
 
   &--overlay {
     width: 100%;

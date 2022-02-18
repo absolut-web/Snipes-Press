@@ -13,8 +13,9 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ec6409">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
@@ -22,48 +23,48 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <a class="screen-reader visually-hidden"
-   href="#primary"><?php esc_html_e( 'Skip to content', 'snipes_press' ); ?></a>
+   href="#primary"><?php esc_html_e('Skip to content', 'snipes_press'); ?></a>
 <header class="header">
     <div class="header__logo">
-        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+        <a class="logo" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
             <img class="logo__image" width="120" height="42"
-                 src="<?php bloginfo( 'template_directory' ); ?>/media/snipes-logo.svg"
-                 alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+                 src="<?php bloginfo('template_directory'); ?>/media/snipes-logo.svg"
+                 alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
         </a>
     </div>
     <div class="header__menu site-menu">
         <button class="site-menu__button site-menu-button" aria-controls="primary-menu"
-                aria-expanded="false"><?php esc_html_e( 'Menu', 'snipes_press' ); ?>
+                aria-expanded="false"><?php esc_html_e('Menu', 'snipes_press'); ?>
             <span class="site-menu-button__icon"></span>
         </button>
         <nav class="site-menu__container">
             <?php
-            wp_nav_menu( array(
+            wp_nav_menu(array(
                 'theme_location' => 'primary',
-                'menu_id'        => 'primary-menu',
-                'menu_class'     => 'menu-list',
-                'container'      => ''
-            ) );
+                'menu_id' => 'primary-menu',
+                'menu_class' => 'menu-list',
+                'container' => ''
+            ));
             ?>
 
         </nav>
     </div>
 
-    <div class="header__lang-switch lang-select">
+    <div class="header__lang-switch lang-switch">
+        <button class="lang-switch__button lang-button" aria-label="Select Language" type="button"
+                aria-controls="language-switch-menu"
+                aria-expanded="false">
+            <?php if (ICL_LANGUAGE_CODE === 'de'):
+                echo '<span>DE</span> <img width="24" height="18" src="' . get_template_directory_uri() . '/media/flags/de.svg" alt="Flag of Germany" class="lang-button__flag">';
+            elseif (ICL_LANGUAGE_CODE === 'en'):
+                echo '<span>EN</span> <img width="24" height="18" src="' . get_template_directory_uri() . '/media/flags/gb.svg" alt="Flag of Great Britain" class="lang-button__flag">';
+            endif;
+            ?>
+        </button>
 
-
-        <div class="page-menu__lang lang-select">
-            <button class="lang-select__button" type="button">
-                <span>DE</span>
-                <img width="20" height="15" src="<?php bloginfo( 'template_directory' ); ?>/media/icons/flag-gb.svg" alt="German"></button>
-
-            <div class="lang-select__alternate visually-hidden">
-                <a href="?lang=pl"><span>EN</span>
-                    <img width="20" height="15" src="<?php bloginfo( 'template_directory' ); ?>/media/icons/flag-pl.svg" alt="English">
-                </a>
-            </div>
+        <div class="lang-switch__menu visually-hidden" id="language-switch-menu">
+            <?php do_action('wpml_add_language_selector'); ?>
         </div>
-
 
     </div>
 </header>

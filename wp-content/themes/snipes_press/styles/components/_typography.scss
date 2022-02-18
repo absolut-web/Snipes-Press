@@ -28,28 +28,38 @@ a:hover, a:active {
   color: $color-orange;
 }
 
-.button-link {
+.button-look {
   display: inline-block;
-  width: 100%;
-  max-width: 240px;
+  padding: emRem(15, rem) emRem(20, rem);
+  text-decoration: none;
+  color: $color-white !important;
+  background-color: $color-orange;
+  transition: background-color ease-in-out 0.3s;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
 
-  a {
-    display: block;
-    width: 100%;
-    padding: 15px 30px;
-    background: $color-black;
-    color: $color-white;
-    font-weight: 300;
-    text-align: center;
-    line-height: 1.2;
+  & a {
     text-decoration: none;
-    text-transform: uppercase;
-    transition: background ease-in-out 0.3s;
+  }
 
-    &:hover {
-      background: $ci-color-secondary;
+  &:hover {
+    background-color: $color-black;
+  }
+
+  &--border {
+    background-color: transparent;
+    color: $color-black !important;
+    border: 1px solid $color-black;
+
+    &:hover, &-active {
+      color: $color-white !important;
+      background-color: $color-black;
     }
+  }
 
+  &--full-width {
+    width: 100%;
   }
 }
 
@@ -78,41 +88,23 @@ a:hover, a:active {
 }
 
 h1, h2, h3 {
-  line-height: 1.4;
   margin: 0 auto 20px;
-  font-weight: 700;
-}
-
-h1 {
   font-size: 24px;
-  font-weight: 400;
-  @include for-tablet {
-    font-size: 28px;
-  }
+  line-height: 1.4;
+  font-weight: 700;
+  text-transform: uppercase;
+
   @include for-laptop {
-    font-size: 38px;
+    font-size: 30px;
   }
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: 400;
-  @include for-tablet {
-    font-size: 22px;
-  }
-  @include for-laptop {
-    font-size: 24px;
-  }
-}
-
-h3 {
-  font-size: 18px;
-  font-weight: 400;
-  @include for-tablet {
+.section__column--sidebar {
+  h1, h2, h3 {
     font-size: 20px;
-  }
-  @include for-laptop {
-    font-size: 22px;
+    @include for-laptop {
+      font-size: 24px;
+    }
   }
 }
 

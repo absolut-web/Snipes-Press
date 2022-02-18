@@ -1,3 +1,15 @@
+.archive-listing {
+  &--tile {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: emRem(20, rem);
+
+    @include for-laptop {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
 .article-archive {
   position: relative;
   display: grid;
@@ -7,13 +19,46 @@
   padding: emRem(50, rem) 0;
   border-bottom: emRem(1, rem) solid $color-gray;
 
-  @include for-laptop{
-    grid-template-columns: emRem(400, rem) minmax(auto, emRem(700, rem)) ;
+  @include for-laptop {
+    grid-template-columns: emRem(400, rem) minmax(auto, emRem(700, rem));
     grid-gap: emRem(40, rem);
   }
 
   &:last-child {
     border: none;
+  }
+
+  &--tile {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    grid-template-columns: unset;
+    grid-gap: unset;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: emRem(20, rem);
+    border: none;
+    text-align: center;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(17, 17, 17, 0.5);
+      z-index: 2;
+    }
+
+    &:hover {
+      .tile-item__image {
+        transform: scale(1.05);
+      }
+    }
   }
 }
 
@@ -49,4 +94,65 @@
       height: emRem(300, rem);
     }
   }
+}
+
+.tile-item {
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transition: transform ease-in-out 0.5s;
+    z-index: -1;
+  }
+
+  &__title {
+    margin-bottom: emRem(20, rem);
+    font-size: emRem(22, em);
+    font-weight: 700;
+    color: $color-white;
+    text-transform: uppercase;
+    z-index: 3;
+  }
+
+  &__title {
+    margin-bottom: emRem(20, rem);
+    font-size: emRem(20, em);
+    font-weight: 700;
+    color: $color-white;
+    text-transform: uppercase;
+    z-index: 3;
+  }
+
+  &__link {
+    z-index: 3;
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 4;
+    }
+  }
+
+}
+
+
+.list-content {
+  &__meta {
+  margin-bottom: emRem(20, rem);
+  }
+
+  &__title {
+    margin-bottom: emRem(15, rem);
+    font-size: emRem(22, em);
+    text-transform: unset;
+  }
+
 }
