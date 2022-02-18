@@ -142,7 +142,6 @@
       }
 
 
-
       @include for-laptop {
         font-size: emRem(16, em);
       }
@@ -156,7 +155,8 @@
     }
 
     &.current_page_parent >,
-    &.current-category-ancestor >{
+    &.current-post-parent >,
+    &.current-category-ancestor > {
       a {
         border-bottom: emRem(2, rem) solid $ci-color-primary;
       }
