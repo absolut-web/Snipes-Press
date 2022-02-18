@@ -39,10 +39,10 @@ $browser-context: 16; // Default
   @return #{$pixels/$context+$unit};
 }
 
-$font-size-base: emRem(16,em) !default;
-$font-size-medium: emRem(24,em) !default;
-$font-size-large: emRem(32,em) !default;
-$font-size-small: emRem(12,em) !default;
+$font-size-base: emRem(16, em) !default;
+$font-size-medium: emRem(24, em) !default;
+$font-size-large: emRem(32, em) !default;
+$font-size-small: emRem(12, em) !default;
 
 $line-height-base: 1.5 !default;
 $line-height-small: 1.2 !default;
@@ -50,9 +50,9 @@ $line-height-large: 2.5 !default;
 
 // Breaking Points
 // -------------------------
-$screen-desktop: emRem(1440,rem);
-$screen-laptop: emRem(870,rem);
-$screen-tablet: emRem(525,rem);
+$screen-desktop: emRem(1440, rem);
+$screen-laptop: emRem(870, rem);
+$screen-tablet: emRem(525, rem);
 
 // Mixins
 // -------------------------
@@ -83,7 +83,7 @@ html {
 
 body {
   height: 100%;
-  min-width: emRem(280,rem);
+  min-width: emRem(280, rem);
   min-height: calc(100% + 1px);
   margin: 0;
   padding: 0;
@@ -135,19 +135,18 @@ img {
 }
 
 
-
 /* Edit Link */
 
 .edit-link {
   position: fixed;
-  width: emRem(80,rem);
-  height: emRem(80,rem);
-  bottom: emRem(20,rem);
-  left: emRem(20,rem);
+  width: emRem(80, rem);
+  height: emRem(80, rem);
+  bottom: emRem(20, rem);
+  left: emRem(20, rem);
   background: $color-black;
   color: $color-white;
   text-align: center;
-  font-size: emRem(10,em);
+  font-size: emRem(10, em);
   border-radius: 50%;
   z-index: 3;
 
@@ -181,6 +180,25 @@ img {
 
 
 .otgs-development-site-front-end {
-  display: none!important;
+  display: none !important;
 }
 
+
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 20px;
+  height: 0;
+  overflow: hidden;
+
+  & iframe,
+  & object,
+  & embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
