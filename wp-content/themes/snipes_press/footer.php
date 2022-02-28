@@ -36,6 +36,9 @@
             <li class="social-menu__item social-menu__item--spotify">
                 <a aria-label="Spotify" rel="noopener nofollow" href="https://open.spotify.com/user/snipesshop">Spotify</a>
             </li>
+			<li class="social-menu__item social-menu__item--linkedin">
+                <a aria-label="LinkedIn" rel="noopener nofollow" href="https://de.linkedin.com/company/snipes">LinkedIn</a>
+            </li>
         </ul>
 
         <div class="site-footer__info site-info">
