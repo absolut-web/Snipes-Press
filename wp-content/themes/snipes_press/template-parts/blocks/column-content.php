@@ -143,7 +143,6 @@ elseif ( get_row_layout() == 'content_type_team' ):
                         <?php echo $member_content; ?>
                     </div>
 
-
                     <div class="team-member__social team-member-social">
                         <?php if ( $member_instagram ): ?>
                             <a class="team-member-social__link" rel="noopener nofollow" aria-label="Instagram"
@@ -204,10 +203,7 @@ elseif ( get_row_layout() == 'content_type_team' ):
                                      alt="Twitter">
                             </a>
                         <?php endif; ?>
-
-
                     </div>
-
 
                 </div>
             <?php endwhile; ?>
