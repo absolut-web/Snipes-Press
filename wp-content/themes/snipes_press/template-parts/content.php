@@ -15,7 +15,7 @@
     <article id="post-<?php the_ID(); ?>" <?php post_class('article-single'); ?> >
         <?php get_template_part('template-parts/post-header'); ?>
         <div class="article__content entry-content">
-            <div class="section section--content-meta">
+            <div class="section section--small section--content-meta">
                 <?php
                 snipes_press_posted_on();
                 ?>
