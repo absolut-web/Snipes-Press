@@ -67,9 +67,10 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                 $image_size       = size_format( filesize( get_attached_file( $image ) ), 2 );
                 $image_extension  = pathinfo( $image_download, PATHINFO_EXTENSION );
                 $image_caption    = wp_get_attachment_caption( $image );
+                $fig_caption      = '';
 
                 if ( $image_caption ) {
-                    $image_caption = '<figcaption><span>' . $image_caption . '</span></figcaption>';
+                    $fig_caption = '<figcaption><span>' . $image_caption . '</span></figcaption>';
                 }
 
 
@@ -78,12 +79,13 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                         class="image-gallery__item<?php echo $item_class ?>"
                         data-image="<?php echo $image_src; ?>" data-imagew="<?php echo $image_src_width; ?>"
                         data-imageh="<?php echo $image_src_height; ?>" data-download="<?php echo $image_download; ?>"
-                        data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>" data-caption="<?php echo $image_caption; ?>">
+                        data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>"
+                        data-caption="<?php echo $image_caption; ?>">
                     <?php
                     if ( $image_extension !== 'svg' ):
-                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) . $image_caption . '</figure>';
+                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) . $fig_caption . '</figure>';
                     else:
-                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File">' . $image_caption . '</figure>';
+                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File">' . $fig_caption . '</figure>';
                     endif;
 
                     ?>
