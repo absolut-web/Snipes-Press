@@ -293,16 +293,13 @@
 
         if (articleBlock) {
             articleBlock.forEach((item) => {
-
                 const dateBlock = item.querySelector('.section--content-meta')
-                console.log(dateBlock)
+                if (dateBlock.nextElementSibling.classList.contains('section--small')) {
+                    dateBlock.classList.add('section--small')
+                }
             })
         }
-
-
     }
-
     dateWidthFunction()
-
 
 }());
