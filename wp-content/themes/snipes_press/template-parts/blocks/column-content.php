@@ -68,6 +68,8 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                 $image_extension  = pathinfo( $image_download, PATHINFO_EXTENSION );
                 $image_caption    = $image['caption'];
 
+                var_dump($image_caption);
+
                 if ( $image_caption ) {
                     $image_caption .= '<figcaption>'.$image_caption.'</figcaption>';
                 }
