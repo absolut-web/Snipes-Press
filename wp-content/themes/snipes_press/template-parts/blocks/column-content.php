@@ -73,11 +73,10 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                         data-imageh="<?php echo $image_src_height; ?>" data-download="<?php echo $image_download; ?>"
                         data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>">
                     <?php
-
                     if ( $image_extension !== 'svg' ):
-                        echo wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) );
+                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) .'</figure>';
                     else:
-                        echo '<img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File">';
+                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File"></figure>';
                     endif;
 
                     ?>
