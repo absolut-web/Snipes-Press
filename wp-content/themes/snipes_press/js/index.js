@@ -164,7 +164,7 @@
                         <img width="${itemData.image_width}" height="${itemData.image_height}" src="${itemData.image}" alt="Download">
                     </div>
                     <div class="lightbox-content__links">
-                        <a class="button-look" href="${itemData.download}" download>Download • ${itemData.caption ? `• ${itemData.caption}` : ``} • ${itemData.extension} • ${itemData.size}</a>
+                        <a class="button-look" href="${itemData.download}" download>Download ${itemData.caption ? `• ${itemData.caption}` : ``} • ${itemData.extension} • ${itemData.size}</a>
                     </div>
                     <button tabindex="-1" aria-label="Close" type="button" class="lightbox-content__close"><span>Close</span></button>
                 </div>
