@@ -66,13 +66,12 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                 $image_download   = wp_get_attachment_url( $image );
                 $image_size       = size_format( filesize( get_attached_file( $image ) ), 2 );
                 $image_extension  = pathinfo( $image_download, PATHINFO_EXTENSION );
-                $image_caption    = wp_get_attachment_caption( $image );
+                $image_caption    = strip_tags( wp_get_attachment_caption( $image ) );
                 $fig_caption      = '';
 
                 if ( $image_caption ) {
                     $fig_caption = '<figcaption><span>' . $image_caption . '</span></figcaption>';
                 }
-
 
                 ?>
                 <div <?php echo $lightbox ? 'aria-label="More details" aria-expanded="false" role="button" tabindex="0" ' : '' ?>
