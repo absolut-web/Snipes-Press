@@ -121,7 +121,8 @@
                     'image_height': item.dataset.imageh,
                     'download': item.dataset.download,
                     'size': item.dataset.size,
-                    'extension': item.dataset.extension
+                    'extension': item.dataset.extension,
+                    'caption': item.dataset.caption
                 }
 
                 //const lightBox = document.querySelector('.lightbox--' + itemData.index)
