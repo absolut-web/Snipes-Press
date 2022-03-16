@@ -66,12 +66,10 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                 $image_download   = wp_get_attachment_url( $image );
                 $image_size       = size_format( filesize( get_attached_file( $image ) ), 2 );
                 $image_extension  = pathinfo( $image_download, PATHINFO_EXTENSION );
-                $image_caption    = $image['caption'];
-
-                var_dump($image);
+                $image_caption    = wp_get_attachment_caption( $image );
 
                 if ( $image_caption ) {
-                    $image_caption .= '<figcaption>'.$image_caption.'</figcaption>';
+                    $image_caption .= '<figcaption>' . $image_caption . '</figcaption>';
                 }
 
 
@@ -83,9 +81,9 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                         data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>">
                     <?php
                     if ( $image_extension !== 'svg' ):
-                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) . $image_caption .'</figure>';
+                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) . $image_caption . '</figure>';
                     else:
-                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File">'. $image_caption .'</figure>';
+                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File">' . $image_caption . '</figure>';
                     endif;
 
                     ?>
