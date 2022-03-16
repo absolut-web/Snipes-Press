@@ -4,7 +4,7 @@
     <?php if (is_singular()):
 
         if (!$post_title):
-            the_title('<span class="article-header__title">', '</span>');
+            the_title('<h1 class="article-header__title">', '</h1>');
         endif;
         if (has_post_thumbnail()):
             the_post_thumbnail('full', array('class' => 'article-header__image'));
