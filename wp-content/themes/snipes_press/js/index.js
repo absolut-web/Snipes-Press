@@ -293,6 +293,7 @@
 
         if (articleBlock) {
             articleBlock.forEach((item) => {
+                console.log(item)
                 const dateBlock = item.querySelector('.section--content-meta')
                 console.log(dateBlock.nextSibling())
             })
