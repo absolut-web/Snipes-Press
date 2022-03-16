@@ -78,7 +78,7 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                         class="image-gallery__item<?php echo $item_class ?>"
                         data-image="<?php echo $image_src; ?>" data-imagew="<?php echo $image_src_width; ?>"
                         data-imageh="<?php echo $image_src_height; ?>" data-download="<?php echo $image_download; ?>"
-                        data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>">
+                        data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>" data-caption="<?php echo $image_caption; ?>">
                     <?php
                     if ( $image_extension !== 'svg' ):
                         echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) . $image_caption . '</figure>';
