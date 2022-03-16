@@ -75,6 +75,16 @@
         font-weight: 700;
         text-transform: uppercase;
         background: rgba(17,17,17,.5);
+        opacity: 0;
+        transition: transform ease-in-out 0.5s;
+      }
+    }
+
+    &:hover, &:focus {
+      figure {
+        figcaption {
+          opacity: 1;
+        }
       }
     }
 
