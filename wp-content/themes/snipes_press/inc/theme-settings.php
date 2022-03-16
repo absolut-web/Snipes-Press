@@ -283,8 +283,8 @@ function query_latest_posts($posts_title, $posts_cat_id, $posts_number = 3, $pos
             $the_query->the_post();
 
             $post_content = apply_filters('the_content', get_the_content());
-            //$post_content = preg_replace("/<h1(.*)>(.*)<\/h1>/", "", $post_content);
-            $post_content = strip_tags($post_content, '<span><stron>');
+            $post_content = preg_replace("/<h1(.*)>(.*)<\/h1>/", "", $post_content);
+            //$post_content = strip_tags($post_content, '<span><stron>');
             $post_content = (strlen($post_content) <= 100) ? $post_content : wp_html_excerpt($post_content, 100) . '...';
             $post_image = has_post_thumbnail() ? get_the_post_thumbnail('', 'medium_large', array('class' => 'latest-post__image latest-post__image--' . $modifier)) : header_placeholder_image('latest-post__image latest-post__image--' . $modifier);
 
