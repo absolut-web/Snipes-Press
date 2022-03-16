@@ -69,7 +69,7 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                 $image_caption    = wp_get_attachment_caption( $image );
 
                 if ( $image_caption ) {
-                    $image_caption .= '<figcaption>' . $image_caption . '</figcaption>';
+                    $image_caption = '<figcaption>' . $image_caption . '</figcaption>';
                 }
 
 
