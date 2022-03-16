@@ -71,6 +71,9 @@
         top: 0;
         left: 0;
         padding: emRem(10, rem);
+        color: $color-white;
+        font-weight: 700;
+        text-transform: uppercase;
         background: rgba(17,17,17,.5);
       }
     }
