@@ -66,6 +66,13 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                 $image_download   = wp_get_attachment_url( $image );
                 $image_size       = size_format( filesize( get_attached_file( $image ) ), 2 );
                 $image_extension  = pathinfo( $image_download, PATHINFO_EXTENSION );
+                $image_caption    = $image['caption'];
+
+                if ( $image_caption ) {
+                    $image_caption .= '<figcaption>'.$image_caption.'</figcaption>';
+                }
+
+
                 ?>
                 <div <?php echo $lightbox ? 'aria-label="More details" aria-expanded="false" role="button" tabindex="0" ' : '' ?>
                         class="image-gallery__item<?php echo $item_class ?>"
@@ -74,9 +81,9 @@ elseif ( get_row_layout() == 'content_type_gallery' ):
                         data-size="<?php echo $image_size; ?>" data-extension="<?php echo $image_extension; ?>">
                     <?php
                     if ( $image_extension !== 'svg' ):
-                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) .'</figure>';
+                        echo '<figure>' . wp_get_attachment_image( $image, $gallery_image_size, '', array( 'class' => 'image-gallery__item-image' ) ) . $image_caption .'</figure>';
                     else:
-                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File"></figure>';
+                        echo '<figure> <img class="image-gallery__item-image image-gallery__item-image--svg" src="' . $image_src . '" alt="svg File">'. $image_caption .'</figure>';
                     endif;
 
                     ?>
@@ -93,7 +100,7 @@ elseif ( get_row_layout() == 'content_type_accordion' ):
             while ( have_rows( 'accordion' ) ): the_row();
                 $accordion_header  = get_sub_field( 'accordion_header' );
                 $accordion_content = get_sub_field( 'accordion_content' );
-                $random_id = generate_random_string();
+                $random_id         = generate_random_string();
                 ?>
                 <div class="accordion-container__item accordion">
                     <div class="accordion__header accordion-header">
