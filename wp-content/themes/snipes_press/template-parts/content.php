@@ -34,7 +34,11 @@
     </article>
 <?php else : ?>
 
-    <?php $category_layout = get_field('category_layout', get_queried_object());
+    <?php
+    $category_layout = get_field('category_layout', get_queried_object());
+    $read_more = get_field('category_read_more', get_queried_object());
+    print_r($read_more);
+
     if ($category_layout === 'tile'): ?>
 
         <article id="post-<?php the_ID(); ?>" <?php post_class('article-archive article-archive--tile tile-item'); ?> >
