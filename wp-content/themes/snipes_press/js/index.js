@@ -283,6 +283,25 @@
         }
     }
 
-    accordionFunction();
+    accordionFunction()
+
+
+    // Date Block Width
+
+    function dateWidthFunction() {
+        const articleBlock = document.querySelectorAll('.article-single');
+
+        if (articleBlock) {
+            articleBlock.forEach((item) => {
+                const dateBlock = item.querySelector('.section--content-meta')
+                console.log(dateBlock.nextSibling())
+            })
+        }
+
+
+    }
+
+    dateWidthFunction()
+
 
 }());
