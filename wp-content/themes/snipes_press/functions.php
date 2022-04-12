@@ -104,7 +104,8 @@ function snipes_press_scripts()
     wp_style_add_data('snipes_press-style', 'rtl', 'replace');
 
     wp_enqueue_script('snipes_press-navigation', get_template_directory_uri() . '/js/index.js', array(), _S_VERSION, true);
-    wp_deregister_script('jquery');
+//Use for timeline plugin
+ //   wp_deregister_script('jquery');
     wp_deregister_script('wp-embed');
 
 
