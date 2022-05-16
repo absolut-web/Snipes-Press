@@ -15,11 +15,18 @@
     <article id="post-<?php the_ID(); ?>" <?php post_class( 'article-single' ); ?> >
         <?php get_template_part( 'template-parts/post-header' ); ?>
         <div class="article__content entry-content">
-            <div class="section section--content-meta">
-                <?php
-                snipes_press_posted_on();
-                ?>
-            </div>
+
+            <?php
+            $post_categories = wp_get_post_categories( get_the_ID() );
+
+
+            if ( $post_categories[0] != '3' && $post_categories[0] != '16') : ?>
+                <div class="section section--content-meta">
+                    <?php
+                    snipes_press_posted_on();
+                    ?>
+                </div>
+            <?php endif; ?>
 
             <?php
             the_content(
@@ -40,7 +47,7 @@
     $custom_read_more = get_field( 'category_read_more', get_queried_object() );
     if ( $custom_read_more ) {
         $read_more = $custom_read_more;
-    };
+    }
 
     if ( $category_layout === 'tile' ): ?>
 
@@ -76,6 +83,9 @@
                         ?>
                     </div>
                     <?php the_title( '<h2 class="list-content__title">', '</h2>' ); ?>
+                    <?php if ( get_field( 'sub_title' ) ): ?>
+                        <span class="list-content__subtitle"><?php echo get_field( 'sub_title' ) ?></span>
+                    <?php endif; ?>
                 </header>
                 <p class="list-content__excerpt">
                     <?php
