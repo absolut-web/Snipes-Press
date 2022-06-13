@@ -22,14 +22,23 @@
     <script async src=https://www.googletagmanager.com/gtag/js?id=G-BK090W84Y5></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
         gtag('config', 'G-BK090W84Y5');
     </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9319103-26"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-9319103-26');
+    </script>
+
 </head>
 
 <body <?php body_class(); ?>>
