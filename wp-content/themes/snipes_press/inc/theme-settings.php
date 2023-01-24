@@ -82,6 +82,13 @@ function add_primary_menu_classes($classes, $args, $depth)
 add_filter('nav_menu_submenu_css_class', 'add_primary_menu_classes', 10, 3);
 
 
+function wrap_embed_with_div($html, $url, $attr) {
+    return '<div class="wp-video">' . $html . '</div>';
+}
+
+add_filter('embed_oembed_html', 'wrap_embed_with_div', 10, 3);
+
+
 /**
  * Add Sub Menu Classes for Footer
  */
