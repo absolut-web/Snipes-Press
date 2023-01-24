@@ -74,7 +74,7 @@
       font-size: 26px;
       margin: 0 auto 10px;
       letter-spacing: 1px;
-      text-transform: uppercase;
+      text-transform: unset;
       @include for-tablet {
         font-size: 34px;
       }
@@ -86,6 +86,7 @@
 
     h2 {
       margin: 0 auto 40px;
+      text-transform: unset;
     }
 
 

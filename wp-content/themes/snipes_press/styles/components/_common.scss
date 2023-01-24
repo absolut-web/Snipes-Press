@@ -1,31 +1,41 @@
+@use "sass:math";
+
 // Colors
 // -------------------------
-$color-orange: #df3f0d;
-$ci-color-primary: #334247;
-$ci-color-secondary: #ec6409;
-$color-black: #494b52;
+//$color-orange: #df3f0d;
+$ci-color-primary: #494B52;
+$ci-color-secondary: #EA640C;
+$color-black: #494B52;
 $color-white: #ffffff;
-$color-gray: #c6c6c6;
-$color-gray-light: #f0f4f5;
-$color-orange: #ec6409;
+$color-gray: #929397;
+$color-gray-light: #EDEDEE;
+$color-orange: #EA640C;
+$color-gray-60: #929397;
+$color-gray-40: #B6B7BA;
+$color-gray-20: #DBDBDC;
+$color-gray-10: #EDEDEE;
 
-
-$color-red: #ff2c33;
+$color-red: #CC0000;
 $color-blue: #193c53;
-$color-pink: #c6418a;
-$color-yellow: #f6b931;
-$color-green: #00d084;
+$color-pink: #7B61FF;
+$color-yellow: #FFCC00;
+$color-green: #339933;
 
 // Fonts
 // -------------------------
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
 
-$font-family-base: 'Roboto', sans-serif !default;
-$font-family-secondary: 'Permanent Marker', cursive !default;
-$font-family-extra: 'Mizike', cursive !default;
+//$font-family-base: 'Roboto', sans-serif !default;
+//$font-family-secondary: 'Permanent Marker', cursive !default;
+//$font-family-extra: 'Mizike', cursive !default;
+$font-family-base: 'Rubik', sans-serif !default;
+$font-family-secondary: 'Oswald', sans-serif !default;
 
 // PX to EM/REM
 // -------------------------
+$browser-context: 16; // Default
 $browser-context: 16; // Default
 @function em($pixels, $context: $browser-context) {
   @return #{$pixels/$context}em;
@@ -37,6 +47,7 @@ $browser-context: 16; // Default
 
 @function emRem($pixels, $unit, $context: $browser-context) {
   @return #{$pixels/$context+$unit};
+
 }
 
 $font-size-base: emRem(16, em) !default;
@@ -92,6 +103,10 @@ body {
   line-height: $line-height-base;
   color: $color-black;
   background: $color-white;
+}
+
+.text-snipes {
+  text-transform: uppercase !important;
 }
 
 *, ::after, ::before {
@@ -158,6 +173,7 @@ img {
     transform: translate(-50%, -50%);
     text-decoration: none;
     font-weight: 300 !important;
+    text-transform: unset;
   }
 }
 

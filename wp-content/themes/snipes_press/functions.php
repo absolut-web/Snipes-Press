@@ -116,6 +116,44 @@ function snipes_press_scripts()
 
 add_action('wp_enqueue_scripts', 'snipes_press_scripts');
 
+function snipes_upper_lowercase_filter($txt) {
+    $txt = str_replace('snipes', 'SNIPES', $txt);
+
+    return $txt;
+}
+
+function title_filter($txt) {
+    //if(is_single() && 'post' == get_post_type()) {
+        return snipes_upper_lowercase_filter($txt);
+    //}
+
+    return $txt;
+}
+add_filter('the_title', 'title_filter');
+add_filter('get_the_title', 'title_filter');
+
+function wpdocs_filter_wp_title($title, $sep) {
+    return snipes_upper_lowercase_filter($title);
+}
+add_filter('wp_title', 'wpdocs_filter_wp_title', 10, 2);
+
+function content_filter($txt) {
+    if(is_singular() && in_the_loop() && is_main_query()) {
+        return snipes_upper_lowercase_filter($txt);
+    }
+
+    return $txt;
+}
+//add_filter('the_content', 'content_filter');
+
+function wpa_filter_nav_menu_objects($items) {
+    foreach($items as $item) {
+        $item->title = snipes_upper_lowercase_filter($item->title);
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'wpa_filter_nav_menu_objects');
+
 /**
  * Custom template tags for this theme.
  */

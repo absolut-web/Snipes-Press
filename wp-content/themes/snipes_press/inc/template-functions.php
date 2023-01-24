@@ -34,4 +34,4 @@ function snipes_press_pingback_header() {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'snipes_press_pingback_header' );
+add_action('wp_head', 'snipes_press_pingback_header');

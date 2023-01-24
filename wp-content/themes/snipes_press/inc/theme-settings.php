@@ -229,6 +229,7 @@ function trim_content($content)
     if (is_archive() || is_search()) {
         $content = preg_replace("/<h1(.*)>(.*)<\/h1>/", "", $content);
         $content = (strlen($content) <= 180) ? $content : wp_html_excerpt($content, 180) . '...';
+        $content = snipes_upper_lowercase_filter($content);
     }
 
     return $content;
@@ -243,7 +244,7 @@ add_filter('the_content', 'trim_content');
 function prefix_category_title($title)
 {
     if (is_category()) {
-        $title = single_cat_title('', false);
+        $title = snipes_upper_lowercase_filter(single_cat_title('', false));
     }
 
     return $title;
@@ -266,12 +267,12 @@ function query_latest_posts($posts_title, $posts_cat_id, $posts_number = 3, $pos
         'post_status' => 'publish'
     );
 
-    $posts_title = $posts_title ? strip_tags($posts_title, '<span>') : 'Latest <span class="colorize-orange">posts</span>';
-    $posts_title = '<h2 class="post-block__title">' . $posts_title . '</h2>';
+    $posts_title = $posts_title ? strip_tags($posts_title, '<span>') : 'latest <span class="colorize-orange">posts</span>';
+    $posts_title = '<h2 class="post-block__title">' . snipes_upper_lowercase_filter($posts_title) . '</h2>';
 
     $modifier = $posts_style === 'regular' ? 'regular' : 'overlay';
 
-    $category_link = $posts_style === 'regular' ? '<a class="post-block__link button-look" href="' . get_category_link($posts_cat_id) . '" rel="category tag">Find out more</a>' : '';
+    $category_link = $posts_style === 'regular' ? '<a class="post-block__link button-look" href="' . get_category_link($posts_cat_id) . '" rel="category tag">find out more</a>' : '';
 
     $post = '';
 
@@ -290,15 +291,15 @@ function query_latest_posts($posts_title, $posts_cat_id, $posts_number = 3, $pos
 
             if ($posts_style === 'regular'):
                 $post .= '<article class="post-list__item latest-post latest-post--regular">';
-                $post .= '<a aria-label="Read more about ' . get_the_title() . '" class="latest-post__image-link" href="' . esc_url(get_the_permalink()) . '" rel="bookmark">' . $post_image . '</a>';
-                $post .= '<h3 class="latest-post__title">' . get_the_title() . '</h3>';
-                $post .= '<p class="latest-post__excerpt">' . $post_content . '</p>';
-                $post .= '<a aria-label="Read more about ' . get_the_title() . '" class="latest-post__link" href="' . esc_url(get_the_permalink()) . '" rel="bookmark">Read More</a>';
+                $post .= '<a aria-label="Read more about ' . snipes_upper_lowercase_filter(get_the_title()) . '" class="latest-post__image-link" href="' . esc_url(get_the_permalink()) . '" rel="bookmark">' . $post_image . '</a>';
+                $post .= '<h3 class="latest-post__title">' . snipes_upper_lowercase_filter(get_the_title()) . '</h3>';
+                $post .= '<p class="latest-post__excerpt">' . snipes_upper_lowercase_filter($post_content) . '</p>';
+                $post .= '<a aria-label="Read more about ' . snipes_upper_lowercase_filter(get_the_title()) . '" class="latest-post__link" href="' . esc_url(get_the_permalink()) . '" rel="bookmark">Read More</a>';
             else:
                 $post .= '<article class="post-list__item latest-post latest-post--overlay">';
                 $post .= $post_image;
-                $post .= '<h3 class="latest-post__title latest-post__title--overlay">' . get_the_title() . '</h3>';
-                $post .= '<a aria-label="Read more about ' . get_the_title() . '" class="latest-post__link latest-post__link--overlay button-look colorize-orange" href="' . esc_url(get_the_permalink()) . '" rel="bookmark">Read More</a>';
+                $post .= '<h3 class="latest-post__title latest-post__title--overlay">' . snipes_upper_lowercase_filter(get_the_title()) . '</h3>';
+                $post .= '<a aria-label="Read more about ' . snipes_upper_lowercase_filter(get_the_title()) . '" class="latest-post__link latest-post__link--overlay button-look colorize-orange" href="' . esc_url(get_the_permalink()) . '" rel="bookmark">Read More</a>';
             endif;
             $post .= '</article>';
 
@@ -406,7 +407,10 @@ function show_related_gallery($post_id): string
     $post = get_post($post_id);
     $post_blocks = parse_blocks($post->post_content);
 
-    $post_link = '<div class="preview-links__item"><a class="button-look button-look--full-width" rel="bookmark" href="' . get_permalink($post_id) . '">Zur Galerie</a></div>';
+    if ( ICL_LANGUAGE_CODE === 'de' )
+        $post_link = '<div class="preview-links__item"><a class="button-look button-look--full-width" rel="bookmark" href="' . get_permalink($post_id) . '">Zur Galerie</a></div>';
+    else
+        $post_link = '<div class="preview-links__item"><a class="button-look button-look--full-width" rel="bookmark" href="' . get_permalink($post_id) . '">To Gallery</a></div>';
     $download_all = '';
 
     $output = '';
@@ -445,10 +449,14 @@ function show_related_gallery($post_id): string
             endforeach;
 
             foreach ($block as $key => $value): // Download Link Text
-                if ("download_title" === substr($key, -14)):
+                if ("download_title" === substr($key, -14)) {
+                    if ( ICL_LANGUAGE_CODE !== 'de' ) {
+                        $value = str_replace(['Alle downloaden', 'Alle Downloaden'], 'Download all', $value);
+                    }
+
                     $download_all .= $value . '</a></div>';
                     break;
-                endif;
+                }
             endforeach;
 
         endif;
@@ -478,8 +486,8 @@ function add_category_filter($parent_category = 1): string
                 '<a class="button-look button-look--border %1$s" href="%2$s" alt="%3$s">%4$s</a>',
                 esc_html($current_category == $category->cat_ID && $current_category != $parent_category ? 'button-look--border-active' : ''),
                 esc_url(get_category_link($category->term_id)),
-                esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $category->name)),
-                esc_html($category->cat_ID == $parent_category ? 'Alle' : $category->name)
+                esc_attr(sprintf(__('View all posts in %s', 'textdomain'), snipes_upper_lowercase_filter($category->name))),
+                esc_html($category->cat_ID == $parent_category ? 'Alle' : snipes_upper_lowercase_filter($category->name))
 
             );
             $output .= '<li class="post-filter__item">' . $category_link . '</li>';

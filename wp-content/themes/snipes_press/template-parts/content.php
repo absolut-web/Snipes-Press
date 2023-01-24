@@ -84,7 +84,7 @@
                     </div>
                     <?php the_title( '<h2 class="list-content__title">', '</h2>' ); ?>
                     <?php if ( get_field( 'sub_title' ) ): ?>
-                        <span class="list-content__subtitle"><?php echo get_field( 'sub_title' ) ?></span>
+                        <span class="list-content__subtitle"><?php echo snipes_upper_lowercase_filter(get_field( 'sub_title' )) ?></span>
                     <?php endif; ?>
                 </header>
                 <p class="list-content__excerpt">

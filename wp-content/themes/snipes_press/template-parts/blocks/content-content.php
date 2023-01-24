@@ -17,7 +17,7 @@ if ( ! empty( $block['align'] ) ) {
 if ( have_rows( 'content' ) ):
     while ( have_rows( 'content' ) ) : the_row(); ?>
         <?php if ( get_row_layout() == 'one_column' ):
-            $text = get_sub_field( 'text' );
+            $text = snipes_upper_lowercase_filter(get_sub_field( 'text' ));
             ?>
             <div class="section section--large">
                 <div class="content content--block">

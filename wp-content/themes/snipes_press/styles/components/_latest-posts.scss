@@ -1,7 +1,7 @@
 .post-block {
 
   &__title {
-    text-transform: uppercase;
+    text-transform: unset;
     font-weight: 700;
   }
 
@@ -25,6 +25,7 @@
 
 .latest-post {
   position: relative;
+  border-radius: 5px;
 
   &--regular {
     padding-bottom: emRem(30, rem);
@@ -56,6 +57,7 @@
     height: 300px;
     object-fit: cover;
     transition: transform ease-in-out 0.5s;
+    border-radius: 5px;
 
     &--overlay {
       position: absolute;
@@ -71,12 +73,13 @@
     font-size: emRem(18, em);
     font-weight: 700;
     text-transform: unset;
+    height: 5rem;
 
     &--overlay {
       margin-bottom: emRem(20, rem);
       font-size: emRem(20, em);
       color: $color-white;
-      text-transform: uppercase;
+      text-transform: unset;
       z-index: 3;
     }
 
@@ -84,6 +87,7 @@
 
   &__excerpt {
     margin-bottom: emRem(5, rem);
+    text-transform: unset;
   }
 
   &__link {

@@ -29,6 +29,7 @@
   }
 
   &--tile {
+    border-radius: 5px;
     width: 100%;
     min-height: 300px;
     display: flex;
@@ -80,6 +81,7 @@
   }
 
   &__image {
+    border-radius: 5px;
     width: 100%;
     height: emRem(200, rem);
     object-fit: cover;
@@ -106,6 +108,7 @@
     left: 0;
     object-fit: cover;
     transition: transform ease-in-out 0.5s;
+    border-radius: 5px;
     z-index: -1;
   }
 
@@ -114,7 +117,7 @@
     font-size: emRem(22, em);
     font-weight: 700;
     color: $color-white;
-    text-transform: uppercase;
+    text-transform: unset;
     z-index: 3;
   }
 
@@ -123,7 +126,7 @@
     font-size: emRem(20, em);
     font-weight: 700;
     color: $color-white;
-    text-transform: uppercase;
+    text-transform: unset;
     z-index: 3;
   }
 

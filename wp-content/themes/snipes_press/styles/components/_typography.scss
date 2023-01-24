@@ -1,6 +1,7 @@
 a {
   color: inherit;
   transition: color ease-in-out 0.3s;
+  text-transform: unset;
 
   &[href^="tel:"] {
     white-space: nowrap;
@@ -29,6 +30,7 @@ a:hover, a:active {
 }
 
 .button-look {
+  border-radius: 10px;
   display: inline-block;
   padding: emRem(15, rem) emRem(20, rem);
   text-decoration: none;
@@ -36,11 +38,12 @@ a:hover, a:active {
   background-color: $color-orange;
   transition: background-color ease-in-out 0.3s;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: unset;
   line-height: 1;
 
   & a {
     text-decoration: none;
+    text-transform: unset;
   }
 
   &:hover {
@@ -49,8 +52,8 @@ a:hover, a:active {
 
   &--border {
     background-color: transparent;
-    color: $color-black !important;
-    border: 1px solid $color-black;
+    color: $color-orange !important;
+    border: 1px solid $color-orange;
 
     &:hover, &-active {
       color: $color-white !important;
@@ -87,16 +90,32 @@ a:hover, a:active {
   }
 }
 
+h1 {
+  font-size: 28px;
+  @include for-laptop {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  @include for-laptop {
+    font-size: 28px;
+  }
+}
+
+h1 {
+  font-size: 16px;
+  @include for-laptop {
+    font-size: 20px;
+  }
+}
+
 h1, h2, h3 {
   margin: 0 auto 20px;
-  font-size: 24px;
   line-height: 1.4;
-  font-weight: 700;
-  text-transform: uppercase;
-
-  @include for-laptop {
-    font-size: 30px;
-  }
+  font-weight: 500;
+  text-transform: unset !important;
 }
 
 .section__column--sidebar {
@@ -110,6 +129,11 @@ h1, h2, h3 {
 
 p {
   margin: 0 0 20px 0;
+  text-transform: unset;
+}
+
+p.list-content__excerpt {
+  text-transform: unset;
 }
 
 ul {
@@ -134,7 +158,6 @@ b, strong {
 .section-title {
   margin-top: 30px;
   margin-bottom: 30px;
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: 500;
   text-align: center;
 }

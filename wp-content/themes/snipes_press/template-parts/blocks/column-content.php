@@ -5,7 +5,7 @@ if ( get_row_layout() == 'content_type_text' ):
 elseif ( get_row_layout() == 'content_type_latest_posts' ):
     if ( have_rows( 'latest_posts' ) ):
         while ( have_rows( 'latest_posts' ) ): the_row();
-            $latest_posts_title    = get_sub_field( 'latest_posts_title' );
+            $latest_posts_title    = snipes_upper_lowercase_filter(get_sub_field( 'latest_posts_title' ));
             $latest_posts_category = get_sub_field( 'latest_posts_category' );
             $latest_posts_style    = get_sub_field( 'latest_posts_style' );
             echo query_latest_posts( $latest_posts_title, $latest_posts_category, '', $latest_posts_style );
@@ -99,8 +99,8 @@ elseif ( get_row_layout() == 'content_type_accordion' ):
         <div class="accordion-container">
             <?php
             while ( have_rows( 'accordion' ) ): the_row();
-                $accordion_header  = get_sub_field( 'accordion_header' );
-                $accordion_content = get_sub_field( 'accordion_content' );
+                $accordion_header  = snipes_upper_lowercase_filter(get_sub_field( 'accordion_header' ));
+                $accordion_content = snipes_upper_lowercase_filter(get_sub_field( 'accordion_content' ));
                 $random_id         = generate_random_string();
                 ?>
                 <div class="accordion-container__item accordion">
