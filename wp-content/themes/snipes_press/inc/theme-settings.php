@@ -82,11 +82,19 @@ function add_primary_menu_classes($classes, $args, $depth)
 add_filter('nav_menu_submenu_css_class', 'add_primary_menu_classes', 10, 3);
 
 
-function wrap_embed_with_div($html, $url, $attr) {
-    return '<div class="wp-video">' . $html . '</div>';
+// Wrap YouTube videos
+function vnmFunctionality_embedWrapper( $html, $url, $attr, $post_id ) {
+    if ( strpos( $html, 'youtube' ) !== false ) {
+        return '<div class="wp-video">' . preg_replace( '#src=(["\'])(https?:)?//(www\.)?youtube\.com#i', 'src=$1$2//$3youtube-nocookie.com', $html ). '</div>';
+
+    } else {
+        return $html;
+    }
+
+
 }
 
-add_filter('embed_oembed_html', 'wrap_embed_with_div', 10, 3);
+add_filter( 'embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 4 );
 
 
 /**

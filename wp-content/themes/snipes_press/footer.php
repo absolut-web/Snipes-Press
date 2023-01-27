@@ -43,6 +43,8 @@
 
         <div class="site-footer__info site-info">
             © <?php echo date("Y"); ?> SNIPES
+
+            <?php echo $_COOKIE['CookieConsent']; ?>
         </div>
     </div>
 
