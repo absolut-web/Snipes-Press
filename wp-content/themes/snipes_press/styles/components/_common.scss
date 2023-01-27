@@ -218,4 +218,14 @@ img {
     height: 100%;
   }
 
+  &__inner {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+
 }
