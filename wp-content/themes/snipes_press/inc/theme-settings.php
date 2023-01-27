@@ -105,7 +105,7 @@ function vnmFunctionality_embedWrapper( $html, $url, $attr, $post_id ) {
         if ( $cookie_consent_marketing ) {
             return '<div class="wp-video">' . preg_replace( '#src=(["\'])(https?:)?//(www\.)?youtube\.com#i', 'src=$1$2//$3youtube-nocookie.com', $html ) . '</div>';
         } else {
-            return '<div class="wp-video"><div class="wp-video__inner"><p>'.$cookie_text.'</p></div></div>';
+            return '<div class="wp-video"><div class="wp-video__inner">'.$cookie_text.'</div></div>';
         }
 
 
