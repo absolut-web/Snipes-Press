@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Cookies
  */
@@ -95,12 +94,18 @@ add_filter( 'nav_menu_submenu_css_class', 'add_primary_menu_classes', 10, 3 );
 // Wrap YouTube videos
 function vnmFunctionality_embedWrapper( $html, $url, $attr, $post_id ) {
     global $cookie_consent_marketing;
+    $cookie_text = 'Dieser Inhalt wird durch YouTube bereitgestellt. Bitte Marketing Cookies erlauben.';
+
+    if ( ICL_LANGUAGE_CODE === 'en' ) {
+        $cookie_text = 'This content is provided by YouTube. Please allow marketing cookies.';
+    }
+
     if ( strpos( $html, 'youtube' ) !== false ) {
 
         if ( $cookie_consent_marketing ) {
             return '<div class="wp-video">' . preg_replace( '#src=(["\'])(https?:)?//(www\.)?youtube\.com#i', 'src=$1$2//$3youtube-nocookie.com', $html ) . '</div>';
         } else {
-            return '<div class="wp-video"><div class="wp-video__inner">Allow Cookies</div></div>';
+            return '<div class="wp-video"><div class="wp-video__inner"><p>'.$cookie_text.'</p></div></div>';
         }
 
 
