@@ -24,8 +24,26 @@ $color-green: #339933;
 // Fonts
 // -------------------------
 //@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+
+@font-face {
+  font-display: swap;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/wp-content/themes/snipes_press/fonts/oswald-v49-latin-regular.woff2') format('woff2'),
+  url('/wp-content/themes/snipes_press/fonts/oswald-v49-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/wp-content/themes/snipes_press/fonts/rubik-v26-latin-regular.woff2') format('woff2'),
+  url('/wp-content/themes/snipes_press/fonts/rubik-v26-latin-regular.woff') format('woff');
+}
 
 //$font-family-base: 'Roboto', sans-serif !default;
 //$font-family-secondary: 'Permanent Marker', cursive !default;
