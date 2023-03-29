@@ -19,7 +19,7 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src=https://www.googletagmanager.com/gtag/js?id=G-BK090W84Y5></script>
+    <script type="text/plain" data-cookieconsent="statistics" async src=https://www.googletagmanager.com/gtag/js?id=G-BK090W84Y5></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -31,7 +31,7 @@
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9319103-26"></script>
+    <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=UA-9319103-26"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
