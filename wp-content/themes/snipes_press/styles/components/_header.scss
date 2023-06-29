@@ -134,6 +134,16 @@
 }
 
 
+/* WPML */
+
+.wpml-ls-legacy-list-horizontal {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 .wpml-ls-item {
 
   .wpml-ls-native {
