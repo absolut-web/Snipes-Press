@@ -178,6 +178,14 @@
     }
   }
 
+  &-pt-pt {
+    .wpml-ls-native {
+      &:before {
+        background: url(/wp-content/themes/snipes_press/media/flags/pt.svg) no-repeat center;
+      }
+    }
+  }
+
 }
 
 
