@@ -79,6 +79,9 @@
                 echo '<span>DE</span> <img width="24" height="18" src="' . get_template_directory_uri() . '/media/flags/de.svg" alt="Flag of Germany" class="lang-button__flag">';
             elseif ( ICL_LANGUAGE_CODE === 'en' ):
                 echo '<span>EN</span> <img width="24" height="18" src="' . get_template_directory_uri() . '/media/flags/gb.svg" alt="Flag of Great Britain" class="lang-button__flag">';
+
+            elseif ( ICL_LANGUAGE_CODE === 'pt-pt' ):
+                echo '<span>PT</span> <img width="24" height="18" src="' . get_template_directory_uri() . '/media/flags/pt.svg" alt="Flag of Great Britain" class="lang-button__flag">';
             endif;
             ?>
         </button>
