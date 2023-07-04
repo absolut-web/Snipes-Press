@@ -140,6 +140,11 @@
   ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+
+    .wpml-ls-item-pt-pt {
+      display: none!important;
+    }
   }
 }
 
@@ -175,7 +180,8 @@
   &-de {
     .wpml-ls-native {
       &:before {
-        background: url(/wp-content/themes/snipes_press/media/flags/de.svg) no-repeat center;
+        background: url(/wp-content/themes/snipes_press/media/flags/de.svg) no-repeat center center;
+        background-size: cover;
       }
     }
   }
@@ -183,7 +189,8 @@
   &-en {
     .wpml-ls-native {
       &:before {
-        background: url(/wp-content/themes/snipes_press/media/flags/gb.svg) no-repeat center;
+        background: url(/wp-content/themes/snipes_press/media/flags/gb.svg) no-repeat center center;
+        background-size: cover;;
       }
     }
   }
@@ -191,7 +198,8 @@
   &-pt-pt {
     .wpml-ls-native {
       &:before {
-        background: url(/wp-content/themes/snipes_press/media/flags/pt.svg) no-repeat center;
+        background: url(/wp-content/themes/snipes_press/media/flags/pt.svg) no-repeat center center;
+        background-size: cover;;
       }
     }
   }
